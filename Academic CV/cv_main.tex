@@ -1,0 +1,189 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+% Modifications:
+% Abhilesh Dhawanjewar <abhilesh7@gmail.com>
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[11pt, a4paper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.2cm, top=.6cm, right=1.2cm, bottom=.75cm, footskip=.45cm}
+
+% Specify the location of the included fonts
+\fontdir[fonts/]
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+\colorlet{awesome}{awesome-blue}
+% Slightly darker greys for readability
+\definecolor{graytext}{HTML}{222222}
+\definecolor{lighttext}{HTML}{222222}
+\definecolor{text}{HTML}{1A1A1A}
+\definecolor{lightgray}{HTML}{4A4A4A}
+% Use the regular (not light) weight for body text so paragraphs and bullet details read darker
+\renewcommand*{\paragraphstyle}{\fontsize{9pt}{1em}\bodyfont\upshape\color{text}}
+\renewcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\upshape\color{text} #1}}
+\renewcommand*{\subdescriptionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\upshape\color{text} #1}}
+% Uncomment if you would like to specify your own color
+% \definecolor{awesome}{HTML}{2828FA}
+
+% Colors for text
+% Uncomment if you would like to specify your own color
+% \definecolor{darktext}{HTML}{414141}
+% \definecolor{text}{HTML}{333333}
+% \definecolor{graytext}{HTML}{5D5D5D}
+% \definecolor{lighttext}{HTML}{999999}
+
+% Set false if you don't want to highlight section with awesome color
+\setbool{acvSectionColorHighlight}{true}
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+% Compact, second-level details used beneath the relevant degree or role.
+\newenvironment{cvdetails}[1]{%
+  \vspace{-6mm}
+  \raggedright
+  \descriptionstyle{\textbf{#1}}\par
+  \vspace{-2.4mm}
+  \begin{list}{}{%
+    \setlength{\leftmargin}{0pt}
+    \setlength{\topsep}{0pt}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\partopsep}{0pt}
+  }
+}{%
+  \end{list}
+  \vspace{2mm}
+}
+
+\newcommand*{\cvdetail}[2]{%
+  \item[] \subdescriptionstyle{\textemdash\enskip}%
+  \subentrytitlestyle{\textbf{#1}}%
+  \ifempty{#2}{}{\subdescriptionstyle{\enskip---\enskip#2}}\par
+}
+
+\newcommand*{\cvheadingentry}[3]{%
+  \cventry{{{\fontsize{11pt}{1em}\bodyfont\bfseries\upshape\color{darktext}\underline{#1}}}\ifempty{#2}{}{\enskip\textemdash\enskip #2}}{}{}{#3}%
+}
+
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+% \photo{./examples/profile.png}
+
+% Compact publication / talk entry: title on one line, details beneath
+\newsavebox{\cvpubtitlebox}
+\newcommand*{\cvpub}[3]{%
+  \item[] \sbox{\cvpubtitlebox}{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext}#1}%
+  \ifdim\wd\cvpubtitlebox>\linewidth\resizebox{\linewidth}{!}{\usebox{\cvpubtitlebox}}\else\usebox{\cvpubtitlebox}\fi\par
+  \subdescriptionstyle{#2\ifempty{#3}{}{\enskip\textbullet\enskip\textit{#3}}}\par
+  \vspace{1.0mm}
+}
+
+
+% Software entry: bold name + italic role on one line, italic description + link icon beneath
+\newcommand*{\cvsoftware}[4]{%
+  \item[] {\fontsize{11pt}{1em}\bodyfont\bfseries\upshape\color{darktext}\underline{#1}}\hfill{\fontsize{9pt}{1em}\bodyfont\itshape\color{graytext}#2}\par
+  \vspace{0.3mm}
+  {\fontsize{9pt}{1em}\bodyfont\itshape\color{text}#3}\hfill{\fontsize{9pt}{1em}\color{awesome}#4}\par
+  \vspace{1mm}
+}
+
+
+% Talk entry: italic title, linked event, optional resource link, date flush right
+\newcommand*{\cvlink}[2]{\ifempty{#1}{#2}{\href{#1}{\color{awesome}#2}}}
+\newsavebox{\cvtalkbox}
+\newcommand*{\cvtalk}[6]{%
+  \item[] {\fontsize{9pt}{1.1em}\bodyfont\color{text}%
+  \sbox{\cvtalkbox}{\textit{#1}}%
+  \ifdim\wd\cvtalkbox>\dimexpr\linewidth-1.9cm\relax\resizebox{\dimexpr\linewidth-1.9cm\relax}{!}{\usebox{\cvtalkbox}}\else\usebox{\cvtalkbox}\fi
+  \hfill{\itshape #6}}\par
+  {\fontsize{9pt}{1.1em}\bodyfont\color{text}\cvlink{#4}{#3}, #5\ifempty{#2}{}{\enskip\textbullet\enskip#2}}\par
+  \vspace{0.45mm}
+}
+% Teaching entry: module, programme and role, date flush right
+\newcommand*{\cvteach}[4]{%
+  \item[] {\fontsize{9pt}{1.1em}\bodyfont\color{text}%
+  \parbox[t]{\dimexpr\linewidth-3.4cm\relax}{\raggedright\textit{#1}, #2, #3}\hfill{\itshape #4}}\par
+  \vspace{0.4mm}
+}
+
+
+% Plain list with no extra spacing (used for publications, software, talks, teaching)
+\newenvironment{cvlist}{%
+  \begin{list}{}{\setlength{\leftmargin}{0pt}\setlength{\topsep}{0pt}\setlength{\itemsep}{0pt}%
+  \setlength{\parsep}{0pt}\setlength{\partopsep}{0pt}}}{\end{list}}
+% Sub-heading inside a section, styled like an entry title (e.g. "Ph.D. in Physics")
+\newcommand*{\cvsubheading}[1]{{\fontsize{11pt}{1em}\bodyfont\bfseries\upshape\color{darktext}\underline{#1}}\par\vspace{0.6mm}}
+
+\name{Jacob}{Tutt}
+\position{AI4Science PhD Researcher\enskip\cdotp\enskip{\href{https://www.kicc.cam.ac.uk}{Kavli Institute for Cosmology}}\enskip\cdotp\enskip Cavendish Laboratory\enskip\cdotp\enskip{\href{https://www.cam.ac.uk/}{University of Cambridge}}}
+\address{Battcock Centre, Cavendish Laboratory, JJ Thomson Avenue, Cambridge, CB3 0HE, UK}
+
+\mobile{(+44) 7392 829036}
+\email{jlt67@cam.ac.uk}
+\homepage{jacobtutt.github.io}
+\github{JacobTutt}
+\linkedin{jacobltutt}
+% \gitlab{gitlab-id}
+% \stackoverflow{SO-id}{SO-name}
+% \twitter{abhilesh7}
+% \skype{skype-id}
+% \reddit{reddit-id}
+% \extrainfo{extra informations}
+
+% \quote{``Be the change that you want to see in the world."}
+
+%-------------------------------------------------------------------------------
+\usepackage{needspace}
+\begin{document}
+% Print the header with above personal informations
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  %{\DTMlangsetup{showdow, showdayofmonth=false}
+   {\yesterday} % Leave the date out
+  %\DTMlangsetup{showdow, showdayofmonth=true}}
+  {Jacob Tutt~~~·~~~Curriculum Vitae}
+  {\thepage}
+%-------------------------------------------------------------------------------
+%	CV/RESUME CONTENT
+%	Each section is imported separately, open each file in turn to modify content
+%-------------------------------------------------------------------------------
+\showboxdepth=5
+\showboxbreadth=5
+
+\input{cv/summary.tex}
+\input{cv/education.tex}
+\input{cv/publications.tex}
+\input{cv/software.tex}
+\input{cv/nonacexperience.tex}
+\input{cv/teaching.tex}
+\input{cv/presentations.tex}
+\input{cv/skills.tex}
+\end{document}

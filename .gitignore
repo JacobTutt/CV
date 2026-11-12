@@ -1,0 +1,16 @@
+# macOS
+.DS_Store
+
+# LaTeX build files (keep the final PDFs)
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.xdv
+*.toc
+*.bbl
+*.blg
+*.bcf
+*.run.xml
