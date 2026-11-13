@@ -4,9 +4,9 @@ I am an AI4Science PhD researcher at the University of Cambridge, working on sca
 
 This repository contains my academic CV and research statement, together with their LaTeX sources.
 
-**Last updated:** 12 November 2026
+**Last updated:** 13 November 2026
 
-**Latest GitHub upload:** 12 November 2026
+**Latest GitHub upload:** 13 November 2026
 
 | Document | PDF | LaTeX source |
 | --- | --- | --- |
