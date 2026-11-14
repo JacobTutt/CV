@@ -6,9 +6,21 @@
 \DeclareCaptionFont{statement}{\fontsize{9pt}{11pt}\bodyfont\color{black}}
 \captionsetup{font=statement,labelfont=bf,skip=5pt,hypcap=false}
 \setlength{\textfloatsep}{6pt}
+\clubpenalty=10000
+\widowpenalty=10000
 
 \geometry{left=1.4cm,right=1.4cm,top=0.8cm,bottom=1.8cm,footskip=0.5cm}
 \fontdir[fonts/]
+
+% Use the same Times New Roman family for body text, headings and footers.
+\setmainfont[Ligatures=TeX]{Times New Roman}
+\setsansfont[Ligatures=TeX]{Times New Roman}
+\renewcommand*{\familydefault}{\rmdefault}
+\renewcommand*{\bodyfont}{\rmfamily}
+\renewcommand*{\bodyfontlight}{\rmfamily}
+\renewcommand*{\headerfont}{\rmfamily}
+\renewcommand*{\headerfontlight}{\rmfamily}
+\renewcommand*{\footerfont}{\rmfamily}
 \colorlet{awesome}{awesome-blue}
 \definecolor{darktext}{HTML}{2B2B2B}
 \renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}

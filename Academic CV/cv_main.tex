@@ -29,6 +29,16 @@
 % Specify the location of the included fonts
 \fontdir[fonts/]
 
+% Use the same Times New Roman family for body text, headings and footers.
+\setmainfont[Ligatures=TeX]{Times New Roman}
+\setsansfont[Ligatures=TeX]{Times New Roman}
+\renewcommand*{\familydefault}{\rmdefault}
+\renewcommand*{\bodyfont}{\rmfamily}
+\renewcommand*{\bodyfontlight}{\rmfamily}
+\renewcommand*{\headerfont}{\rmfamily}
+\renewcommand*{\headerfontlight}{\rmfamily}
+\renewcommand*{\footerfont}{\rmfamily}
+
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
 %                 awesome-nephritis, awesome-concrete, awesome-darknight
